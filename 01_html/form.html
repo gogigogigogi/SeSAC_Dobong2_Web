@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form 태그와 관련 태그 사용해보기</title>
+  </head>
+  <body>
+    <form>
+      <!-- form은 서버에 제출을 하기위한 태그 -->
+      text<input type="text" disabled />
+      <br />
+      <!-- label의 for 속성과 해당 태그의 id속성을 동일하게 한다 (명시적) -->
+      <label for="emailId">email</label
+      ><input type="email" id="emailId" placeholder="example@naver.com" />
+      <br />
+      <!-- label태그 안에 넣게되면 id 설정이 필요없다.(암시적)-->
+      <label for="password"
+        >password<input
+          type="password"
+          name=""
+          id="password"
+          placeholder="비밀번호를 작성해주세요."
+      /></label>
+
+      <br />
+
+      <input type="color" name="" id="" />
+      <input type="range" name="" id="" />
+      <input type="date" name="" id="" />
+      <input type="radio" name="" id="" />
+      <input type="number" name="" id="" />
+
+      <br />
+      <input type="button" name="" id="" value="button" />
+      <input type="submit" value="submit" />
+      <button>버튼</button>
+      <button type="button">버튼</button>
+      <br />
+
+      <h5>다음중 input type이 아닌 것은?(모두 고르시오)</h5>
+      <!-- 체크박스에는 name속성값이 필수 -->
+      <!-- 동일한 name을 줘서 그룹화시킴 -->
+      <input type="checkbox" name="input" />text
+      <input type="checkbox" name="input" />click
+      <input type="checkbox" name="input" />img
+      <input type="checkbox" name="input" />date
+      <input type="checkbox" name="input" disabled />bread
+
+      <h5>다음중 img 태그의 속성인 것은?</h5>
+      <!-- 라디오박스에는 name속성값이 필수 -->
+      <!-- 동일한 name을 줘서 그룹화시킴 -->
+      <input type="radio" name="img" id="" />
+      <input type="radio" name="img" id="" />
+      <label> <input type="radio" name="img" id="" checked />title </label>
+      <label> <input type="radio" name="img" id="" />value </label>
+      <label> <input type="radio" name="img" id="" disabled />mouse </label>
+      <br />
+
+      <!-- select는 option과 같이 사용 -->
+      <select name="flower">
+        <!-- optgroup으로 묶어서 그룹별로 셀렉트박스에 표시한다.-->
+        <!-- label속성으로 제목 정의 -->
+        <optgroup label="빨간꽃">
+          <option value="장미">장미</option>
+          <option value="동백꽃">동백꽃</option>
+        </optgroup>
+        <optgroup label="흰꽃">
+          <option value="매화">매화</option>
+          <option value="목련">목련</option>
+        </optgroup>
+      </select>
+    </form>
+  </body>
+</html>

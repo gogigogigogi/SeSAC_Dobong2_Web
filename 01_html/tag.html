@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- html문서의 기본언어를 정한다. 자동번역, 접근성, seo -->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tag 사용해보기</title>
+  </head>
+  <body>
+    <!-- h1태그는 html문서 전체의 제목이기때문에 최대 1개만 사용해야한다 -->
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+    <p>본문입니다. <br />다음줄 본문입니다.</p>
+    <hr />
+    <h3>아이스라떼 만드는법</h3>
+    <!-- ol type속성은 1(default), a, A, i, I -->
+    <ol type="a">
+      <li><b>우유</b>를 <strong>컵에</strong> 넣습니다.</li>
+      <li><i>얼음</i>을 넣습니다.</li>
+      <li><em>에스프레소</em> 샷을 넣습니다.</li>
+    </ol>
+
+    <h3>오늘의 할 일</h3>
+    <!-- ul type속성은 disk(default), circle, square -->
+    <ul type="square">
+      <li><u>html</u>공부하기</li>
+      <li>운동하기</li>
+      <li><del>맛있는</del>점심 먹기</li>
+    </ul>
+
+    <!-- 리스트 중첩 -->
+    <ul>
+      <!-- ul안에 다른 태그도 들어갈수있지만, 리스트 기호는 붙지않는다. li만 붙음 -->
+      <h3>내가 좋아하는 음식</h3>
+      <li>
+        양식
+        <ul type="circle">
+          <li>스파게티</li>
+          <li>스테이크</li>
+        </ul>
+      </li>
+      <li>
+        일식
+        <ul>
+          <li>돈까스</li>
+          <li>라멘</li>
+        </ul>
+      </li>
+    </ul>
+    <!-- p태그안에서는 뛰어쓰기가 적용안됨. pre태그안에서는 뛰어쓰기가 적용됨 -->
+    <p>안녕하세요. .</p>
+    <pre>안녕하세요        .</pre>
+    <details>
+      <summary>summary에는 제목을 쓴다</summary>
+      <!-- lorem(숫자)를 쓰면 갯수만큼 랜덤한 단어로 바꿔준다. -->
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dignissimos
+        quo accusamus laborum nemo explicabo.
+      </div>
+    </details>
+    <hr />
+    <h2>img태그와 a태그</h2>
+    <!-- img 태그의 필수속성 src, alt -->
+
+    <!-- /는 vscode가 열린 위치 기준(절대경로) -->
+    <!-- 이미지의 웹주소를 넣은 경우 -->
+    <img
+      src="https://img.choroc.com/newshop/goods/009179/009179_1.jpg"
+      alt="라면"
+      width="200"
+      height="200"
+    />
+    <!-- ./는 현재파일 위치 기준(상대경로) -->
+    <!-- 이미지의 로컬 주소를 넣은 경우 -->
+    <img src="./짜파게티.jpg" alt="짜파게티" width="200" height="200" />
+
+    <br />
+    <!-- a 태그의 필수속성 href -->
+    <!-- target속성으로 현재페이지, 새페이지 등으로 변경할수 있다. -->
+    <a href="http://www.naver.com" target="_blank">네이버로 이동</a>
+    <a href="./caffe.html">caffe로 이동</a>
+
+    <!-- 간단실습 -->
+    <a href="http://www.google.com"
+      ><img
+        src="https://i.namu.wiki/i/UGQtkJpRHjmtGABCoZYRgS8cB8aTSXq-eQVravCscfUC5ELCXfmVdomlez6i1E_yaHT9DiLprSp5HyJyIXsJVA.webp"
+        alt="푸"
+        height="200"
+    /></a>
+
+    <hr />
+    <!-- <input type="range" />
+    <input type="file" />
+    <input type="color" />
+    <input type="radio" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" /> -->
+  </body>
+</html>
