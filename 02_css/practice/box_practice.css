@@ -1,0 +1,20 @@
+div {
+  height: 200px;
+  background-color: orange;
+}
+
+span {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin-right: 30px;
+}
+span.html {
+  background-color: skyblue;
+}
+span.css {
+  background-color: green;
+}
+span.javascript {
+  background-color: red;
+}

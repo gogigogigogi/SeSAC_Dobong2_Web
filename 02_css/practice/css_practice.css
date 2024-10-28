@@ -1,0 +1,11 @@
+@import url("./css_import_practice.css");
+
+p {
+  background-color: red;
+  color: white;
+}
+
+h3 {
+  background-color: rgb(38, 28, 188);
+  color: red;
+}
