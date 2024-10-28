@@ -1,0 +1,16 @@
+* {
+  color: white;
+  background-color: gray;
+}
+
+body > span {
+  background-color: red;
+}
+
+body > ol > li#first {
+  background-color: blue;
+}
+
+body .second {
+  background-color: green;
+}
