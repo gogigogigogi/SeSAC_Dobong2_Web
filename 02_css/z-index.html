@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>z-index</title>
+    <style>
+      .container {
+        width: 500px;
+        height: 500px;
+        background-color: grey;
+        position: relative;
+      }
+      .item1 {
+        position: absolute;
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+
+        z-index: 10;
+      }
+      .item2 {
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+
+        z-index: 9;
+      }
+      .item3 {
+        position: absolute;
+        background-color: aqua;
+        width: 100px;
+        height: 100px;
+        top: 60px;
+        left: 60px;
+        z-index: 8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1"></div>
+      <div class="item2"></div>
+      <div class="item3"></div>
+    </div>
+  </body>
+</html>
+ㅁㄴㅇㄴㅇㅁ
