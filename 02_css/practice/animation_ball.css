@@ -1,0 +1,32 @@
+.ball {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, yellow, rgb(247, 88, 2));
+
+  animation: ball-turn-ani 8s linear infinite;
+}
+
+@keyframes ball-turn-ani {
+  from,
+  to {
+    left: 0px;
+    top: 0px;
+  }
+
+  25% {
+    left: calc(100vw - 100px);
+    top: 0px;
+  }
+
+  50% {
+    left: calc(100vw - 100px);
+    top: calc(100vh - 100px);
+  }
+
+  75% {
+    left: 0px;
+    top: calc(100vh - 100px);
+  }
+}
