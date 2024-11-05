@@ -36,7 +36,8 @@ body {
 
 .container .heroes .hero:hover {
   background-color: orange;
-  transform: scale(1.3) skew(-10deg);
+  z-index: 100;
+  transform: scale(1.4) skew(-10deg);
 }
 
 .container .heroes .hero .image {

@@ -5,7 +5,7 @@
   border-radius: 50%;
   background: linear-gradient(45deg, yellow, rgb(247, 88, 2));
 
-  animation: ball-turn-ani 8s linear infinite;
+  animation: ball-turn-ani 2s linear infinite;
 }
 
 @keyframes ball-turn-ani {

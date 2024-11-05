@@ -6,22 +6,50 @@
     <title>Document</title>
     <style>
       .container {
-        width: 500px;
+        width: 300px;
         height: 500px;
-        border: 1px solid black;
-        transform:  translate(50%,50%);
+        background-color: pink;
+
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
       }
-      .img{
-        width: 100%;
-        height: 100%;
 
+      .item {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        border: 1px solid black;
+      }
+      .item3 {
+        order: 2;
+      }
 
+      .item5 {
+        order: 1;
+      }
+
+      .big-box {
+        border: 1px solid red;
+        text-align: center;
+      }
+      .small-box {
+        display: inline-block;
+        border: 1px solid darkgreen;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <img class="img" src="./02_css/img/pooh.png" ></img>
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+    </div>
+
+    <div class="big-box">
+      <div class="small-box">small box</div>
     </div>
   </body>
 </html>
