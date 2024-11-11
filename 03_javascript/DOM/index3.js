@@ -81,9 +81,9 @@ input.addEventListener("keydown", function (event) {
   // console.log(event)
 
   // 방향키 아래, 위, 왼쪽, 오른쪽
-  // console.log(event.code)
-  // console.log(event.key)
-  // console.log(event.keyCode)
+  console.log(event.code);
+  console.log(event.key);
+  console.log(event.keyCode);
   if (event.code === "ArrowLeft") {
     console.log("왼쪽 방향키 눌렸습니다.");
   } else if (event.code === "ArrowRight") {
