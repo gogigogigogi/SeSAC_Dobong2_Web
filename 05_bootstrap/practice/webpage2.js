@@ -179,10 +179,22 @@ const nvidiaChart = new Chart(nvidiaChartCtx, {
   },
 });
 
-document.querySelector(".sellBtn").addEventListener("click", function () {
-  swal("매도", "1주 판매하시겠습니까?");
+document.querySelectorAll(".sellBtn").forEach((el) => {
+  el.addEventListener("click", function () {
+    swal("매도", "1주 판매하시겠습니까?");
+  });
 });
 
-document.querySelector(".buyBtn").addEventListener("click", function () {
-  swal("매수", "1주 구매하시겠습니까?");
+document.querySelectorAll(".buyBtn").forEach((el) => {
+  el.addEventListener("click", function () {
+    swal("매수", "1주 구매하시겠습니까?");
+  });
 });
+
+// document.querySelector(".sellBtn").addEventListener("click", function () {
+//   swal("매도", "1주 판매하시겠습니까?");
+// });
+
+// document.querySelector(".buyBtn").addEventListener("click", function () {
+//   swal("매수", "1주 구매하시겠습니까?");
+// });
