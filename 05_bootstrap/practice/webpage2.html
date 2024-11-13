@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Page</title>
+    <script src="./webpage2.js" defer></script>
+
+    <!-- sweetalert CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"
+    />
+
+    <!-- bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- fullpage CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.js"></script>
+
+    <!-- chart CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <style>
+      header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 10;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 100px;
+        font-size: 50px;
+      }
+
+      h3 {
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .chart-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .card-body {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#firstPage"
+                  >삼성전자</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#secondPage">테슬라</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#thirdPage">엔비디아</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="fullpage">
+      <div class="section">
+        <div class="card" style="width: 600px">
+          <h3 class="card-title">삼성전자</h3>
+          <div class="chart-container">
+            <canvas
+              id="samsung-chart"
+              class="chart"
+              width="500"
+              height="500"
+            ></canvas>
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-primary sellBtn">
+              판매하기
+            </button>
+            <button type="button" class="btn btn-danger buyBtn">
+              구매하기
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="card" style="width: 600px">
+          <h3 class="card-title">테슬라</h3>
+          <div class="chart-container">
+            <canvas
+              id="tesla-chart"
+              class="chart"
+              width="500"
+              height="500"
+            ></canvas>
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-primary sellBtn">
+              판매하기
+            </button>
+            <button type="button" class="btn btn-danger buyBtn">
+              구매하기
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="section active">
+        <div class="card" style="width: 600px">
+          <h3 class="card-title">엔비디아</h3>
+          <div class="chart-container">
+            <canvas
+              id="nvidia-chart"
+              class="chart"
+              width="500"
+              height="500"
+            ></canvas>
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-primary sellBtn">
+              판매하기
+            </button>
+            <button type="button" class="btn btn-danger buyBtn">
+              구매하기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
