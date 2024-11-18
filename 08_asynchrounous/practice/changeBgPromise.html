@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>배경색이 1초에 한번씩 변경이 됩니다.</h1>
+    <script>
+      function changeBg(color) {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            document.body.style.backgroundColor = color;
+            res();
+          }, 1000);
+        });
+      }
+
+      changeBg("red")
+        .then(() => changeBg("orange"))
+        .then(() => changeBg("yellow"))
+        .then(() => changeBg("green"))
+        .then(() => changeBg("blue"));
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>배경색이 1초에 한번씩 변경이 됩니다.</h1>
+    <script>
+      function changeBg() {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            document.body.style.backgroundColor = "red";
+            res();
+          }, 1000);
+        });
+      }
+
+      changeBg()
+        .then(() => {
+          return new Promise((res, rej) => {
+            setTimeout(() => {
+              document.body.style.backgroundColor = "orange";
+              res();
+            }, 1000);
+          });
+        })
+        .then(() => {
+          return new Promise((res, rej) => {
+            setTimeout(() => {
+              document.body.style.backgroundColor = "yellow";
+              res();
+            }, 1000);
+          });
+        })
+        .then(() => {
+          return new Promise((res, rej) => {
+            setTimeout(() => {
+              document.body.style.backgroundColor = "green";
+              res();
+            }, 1000);
+          });
+        })
+        .then(() => {
+          return new Promise((res, rej) => {
+            setTimeout(() => {
+              document.body.style.backgroundColor = "blue";
+              res();
+            }, 1000);
+          });
+        });
+    </script>
+  </body>
+</html>
