@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("../includes/child.ejs",{city:'seoul'}) %>
+    <h1>ejs파일입니다.</h1>
+    <div>테스트</div>
+    <% for(let i =0; i<10; i++){ %>
+    <div><%= i %></div>
+    <div><%=name%></div>
+
+    <img src="/static/img/pooh1.png" alt="" width="50" />
+    <% } %>
+  </body>
+</html>

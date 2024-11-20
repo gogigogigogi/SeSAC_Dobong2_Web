@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    span {
+      color: coral;
+      font-weight: 700;
+    }
+    div{
+      border: 1px solid grey;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 3px;
+    }
+  </style>
+  <body>
+    <h1>결과 확인하기</h1>
+    <h3><span><%=userInfo.name%></span>님 환영합니다.</h3>
+    <div>성별: <%=userInfo.gender%></div>
+    <div>생년월일: <%=userInfo.date[0]%>/<%=userInfo.date[1]%>/<%=userInfo.date[2]%></div>
+    <div>관심사:<% for(let i=0; i<userInfo.hobby.length; i++){%>
+      <%=userInfo.hobby[i]%>
+    <%}%>
+    </div>
+    <hr>
+    <%if(userInfo.method==="post"){%>
+      <h3>다른 태그 작성해보기</h3>
+      <p>좋아하는 색깔 <span style="color:'<%=userInfo.color%>'"><%=userInfo.color%></span></p>
+      <p>좋아하는 숫자 <span><%=userInfo.number%></span></p>
+      <p>다짐 한마리 <span>fighting!!!</span></p>
+      <%}%>
+    <a href="/">홈으로 이동하기</a>
+  </body>
+</html>
