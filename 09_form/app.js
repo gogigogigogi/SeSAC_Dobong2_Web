@@ -43,10 +43,7 @@ app.post("/postForm", function (req, res) {
 
 // form validation post 요청
 app.post("/js-form-check", function (req, res) {
-  console.log("post 요청 바디는", req.body);
-
   // res.send("form data post 요청 성공!");
-  console.log(req.body);
   res.send("js 유효성 검사");
 });
 
