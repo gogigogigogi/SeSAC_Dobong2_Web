@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>외부 API 사용</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>간단 Open API 사용하기</h1>
+    <h3>고양이 사진 바꾸기</h3>
+    <img src="" alt="기본 이미지" id="img" />
+    <button onclick="changeCatImg()">고양이 사진 변경</button>
+
+    <h3>영화 정보 가져오기</h3>
+    <ul>
+      <!-- <div>
+        <img src="영화 이미지" alt="" />
+        <p>영화제목</p>
+      </div> -->
+    </ul>
+    <script>
+      const catURL = "https://api.thecatapi.com/v1/images/search";
+      function changeCatImg() {
+        fetch(catURL)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            const img = document.querySelector("img");
+
+            img.src = data[0].url;
+            img.width = data[0].width;
+            img.height = data[0].height;
+            img.alt = `${data[0].id}-img`;
+          });
+
+        // axios({ method: "get", url: catURL }).then((res) => {
+        //   console.log(res.data);
+
+        // });
+      }
+
+      // api key - 669a4e09
+      // 요청 api - `http://img.omdbapi.com/?${669a4e09}=[yourkey]&s=`
+      // http://www.omdbapi.com/?apikey=[yourkey]&
+      const word = "avengers";
+      axios({
+        method: "get",
+        url: "http://www.omdbapi.com/?apikey=669a4e09&s=" + word,
+      }).then((res) => {
+        console.log(res.data);
+        for (let movie of res.data.Search) {
+          const ul = document.querySelector("ul");
+          const div = document.createElement("div");
+          const img = document.createElement("img");
+          const p = document.createElement("p");
+
+          img.src = movie.Poster;
+          img.alt = movie.imdbID + "movie image";
+          p.textContent = movie.Title;
+          div.append(img, p);
+          ul.append(div);
+        }
+      });
+    </script>
+  </body>
+</html>

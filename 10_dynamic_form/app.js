@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const PORT = 8080;
+
+const realId = "banana";
+const realPw = "4321";
 /* 미들웨어 설정 */
 // 1. 뷰 폴더 설정
 app.set("view engine", "ejs");
@@ -59,6 +62,48 @@ app.post("/fetch", (req, res) => {
   res.send(req.body);
   // res.render("index");
 });
+
+// 외부 api 사용하기
+app.get("/api", (req, res) => {
+  res.render("api");
+});
+
+// 실습1
+app.get("/practice1", (req, res) => {
+  res.render("practice/practice1");
+});
+// 실습1 - get 요청, 응답
+app.get("/practice1-axios-get", (req, res) => {
+  console.log(req.query);
+  res.send(req.query);
+});
+
+// 실습2
+app.get("/practice2", (req, res) => {
+  res.render("practice/practice2");
+});
+// 실습2 - post 요청, 응답
+
+// practice2 POST
+app.post("/practice2", (req, res) => {
+  console.log(req.body);
+  const { userId, userPw } = req.body;
+  if (userId === realId && userPw === realPw) {
+    res.send({ isSuccess: true, userInfo: userId });
+  } else {
+    res.send({ isSuccess: false });
+  }
+});
+
+// app.post("/practice2-axios-post", (req, res) => {
+//   console.log(req.body);
+//   const { userId, userPw } = req.body;
+//   if (userId === realId && userPw === realPw) {
+//     res.send({ isSuccess: true, userInfo: userId });
+//   } else {
+//     res.send({ isSuccess: false });
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);

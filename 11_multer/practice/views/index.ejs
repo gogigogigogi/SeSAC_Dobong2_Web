@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      label {
+        display: block;
+      }
+    </style>
+    <!-- axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>index.ejs</h1>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+      <label>아이디 <input type="text" name="id" id="id" /></label>
+      <label>비밀번호 <input type="password" name="pw" id="pw" /></label>
+      <label>이름 <input type="text" name="name" id="name" /></label>
+      <label>나이 <input type="number" name="age" id="age" /></label>
+      <label
+        >프로필사진 <input type="file" name="profileImg" id="profileImg"
+      /></label>
+      <button type="button" onclick="inputReset()">리셋</button>
+      <button type="submit" onclick="signUp()">사진 업로드</button>
+      <!-- <button type="button" onclick="inputReset()">리셋</button>
+      <button type="button" onclick="signUp()">사진 업로드</button> -->
+    </form>
+    <script>
+      //   function signUp() {
+      //     const idInput = document.querySelector("#id");
+      //     const pwInput = document.querySelector("#pw");
+      //     const nameInput = document.querySelector("#name");
+      //     const ageInput = document.querySelector("#age");
+      //     const imgInput = document.querySelector("#profileImg");
+      //     const formData = new FormData();
+      //     formData.append("id", idInput.value);
+      //     formData.append("pw", pwInput.value);
+      //     formData.append("name", nameInput.value);
+      //     formData.append("age", ageInput.value);
+      //     formData.append("profileImg", imgInput.files[0]);
+
+      //     axios({
+      //       method: "post",
+      //       url: "/signup",
+      //       data: formData,
+      //       headers: {
+      //         "Content-Type": "multipart/form-data",
+      //       },
+      //     }).then((res) => {
+      //       console.log("서버로부터 응답은", res);
+      //       // const img = document.querySelector("#resultImg");
+      //       // img.src = res.data.path;
+      //     });
+      //   }
+      //
+    </script>
+  </body>
+</html>
