@@ -23,7 +23,7 @@
 .card p {
   display: flex;
   margin: 10px 100px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .card p span {
