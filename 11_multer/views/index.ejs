@@ -12,6 +12,11 @@
         border: 2px solid #ccc;
         padding: 1rem;
       }
+      .profile {
+        background-color: pink;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #0002;
+      }
     </style>
   </head>
   <body>
@@ -71,8 +76,9 @@
       width="200"
       height="200"
     />
-    <div class="title"></div>
+    <div class="tit"></div>
     <script>
+      // 1. 파일만 업로드
       function fileUpload() {
         const file = document.getElementById("dynamicFile");
         console.log(file.files[0]);
@@ -95,7 +101,50 @@
           img.src = `/${res.data.path}`;
         });
       }
-      function fileAndTextUpload() {}
+      // 2. 글과 파일을 함께 업로드
+      function fileAndTextUpload() {
+        const formData = new FormData();
+        // input[type="file"], 파일 정보를 서버로 보내기 위해 선택
+        const file = document.getElementById("dynamicFile");
+        // input[type="text"], 텍스트 정보를 서버로 보내기 위해 선택
+        // 이미지에 대한 제목, 글자 정보
+        const title = document.getElementById("dynamicTitle");
+        // img 태그
+        // src, alt 속성을 바꾸기 위해서 선택
+        const img = document.querySelector("img");
+
+        formData.append("dynamicFile", file.files[0]);
+        formData.append("dynamicTitle", title.value);
+
+        /*
+        formData = {
+          dynamicFile: 파일정보(fileList[0],
+          dynamicTitle: 사진 제목 텍스트 정보
+        }
+        */
+
+        axios({
+          method: "post",
+          url: "/dynamicUpload",
+          data: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+          .then((res) => {
+            console.log(res.data.fileInfo.dynamicTitle);
+            console.log(res.data.file.path);
+            img.src = `/${res.data.file.path}`;
+            img.alt = `${res.data.fileInfo.dynamicTitle} 사진`;
+            img.classList.add("profile");
+            // class ="tit"
+            document.querySelector(".tit").innerText =
+              res.data.fileInfo.dynamicTitle;
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     </script>
   </body>
 </html>

@@ -7,13 +7,53 @@
     <link rel="stylesheet" href="/static/css/my_page.css" />
   </head>
   <body>
-    <h1><%=userInfo.name%>님 마이페이지</h1>
-    <img src="<%=userInfo.file.path %>" alt="" />
-    <ul>
-      <li><span>아이디</span><%=userInfo.id %></li>
-      <li><span>비밀번호</span><%=userInfo.pw %></li>
-      <li><span>이름</span><%=userInfo.name %></li>
-      <li><span>나이</span><%=userInfo.age %></li>
-    </ul>
+    <div class="card">
+      <h1><span><%=userInfo.name%></span>님의 마이페이지</h1>
+      <img src="/<%=userInfo.src%>" alt="프로필 이미지" width="200px" />
+      <p>
+        <span>아이디</span>
+        <span><%=userInfo.id%></span>
+      </p>
+      <p>
+        <span>비밀번호</span>
+        <span><%=userInfo.pw%></span>
+      </p>
+      <p>
+        <span>이름</span>
+        <span><%=userInfo.name%></span>
+      </p>
+      <p>
+        <span>나이</span>
+        <span><%=userInfo.age%></span>
+      </p>
+    </div>
   </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my page</title>
+    <link rel="stylesheet" href="/static/css/my_page.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+
+        <div class="userInfo-container">
+          <ul>
+            <li><span>아이디</span></li>
+            <li><span>비밀번호</span></li>
+            <li><span>이름</span></li>
+            <li><span>나이</span></li>
+          </ul>
+          <ul>
+
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html> -->
