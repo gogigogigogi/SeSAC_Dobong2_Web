@@ -94,6 +94,7 @@ exports.deleteVisitor = (id, cb) => {
   });
 };
 
+// 5. 데이터 수정
 exports.patchVisitor = (data, cb) => {
   console.log("model data", data);
   conn.query(

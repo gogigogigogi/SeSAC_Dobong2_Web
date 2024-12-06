@@ -6,6 +6,8 @@ create table visitor(
   comment MEDIUMTEXT
 )
 
+show TABLES;
+
 drop table visitor;
 
 desc visitor;

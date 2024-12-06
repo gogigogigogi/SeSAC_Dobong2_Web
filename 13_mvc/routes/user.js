@@ -9,6 +9,6 @@ router.get("/", controller.getUser);
 // router.get("/aa",controller.a);
 
 // POST /user/login
-// router.post("/login", controller.login);
+router.post("/login", controller.login);
 
 module.exports = router;
