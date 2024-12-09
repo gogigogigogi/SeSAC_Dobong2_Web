@@ -48,6 +48,7 @@ exports.postSignIn = (req, res) => {
       attributes: ["userid", "name", "pw"],
     })
     .then((result) => {
+      console.log("결과", result);
       res.send(result);
     })
     .catch((err) => {

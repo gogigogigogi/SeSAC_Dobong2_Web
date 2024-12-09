@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+console.log(process.env);
 const development = {
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
