@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <body>
+    <h1>회원가입</h1>
+    <form name="form_register">
+      <label for="userid">ID</label>
+      <input id="userid" type="text" name="userid" required /><br />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="userpw" required /><br />
+      <label for="nickname">Nickname </label>
+      <input id="nickname" type="text" name="nickname" required /><br />
+      <label for="profilePic">profile Pic </label>
+      <input id="profilePic" type="file" name="profilePic" required /><br />
+      <button type="button" onclick="handleSignup()">Register</button>
+    </form>
+    <a href="/user/signin">Login</a>
+    <script>
+      async function handleSignup() {
+        const form = document.forms["form_register"];
+        const formData = new FormData();
+        formData.append("id", form.userid.value);
+        formData.append("pw", form.userpw.value);
+        formData.append("nickname", form.nickname.value);
+        formData.append("profilePic", form.profilePic.files[0]);
+
+        // const inputInfo = {
+        //   id: form.userid.value,
+        //   pw: form.userpw.value,
+        //   nickname: form.nickname.value,
+        // };
+
+        try {
+          const response = await axios({
+            url: "/user/signup",
+            method: "post",
+            data: formData,
+          });
+          console.log(response);
+          if (response.status >= 200 && response.status < 300) {
+            alert("회원가입 성공");
+            document.location.href = "/";
+          } else {
+            alert("회원가입 실패, 다시 시도해주세요");
+          }
+        } catch (err) {
+          console.log("err", err);
+        }
+      }
+    </script>
+  </body>
+</html>

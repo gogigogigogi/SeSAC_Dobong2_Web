@@ -31,6 +31,7 @@ exports.getPlayer = async (req, res) => {
       include: [{ model: Profile, attributes: ["position", "salary"] }],
       // attributes의 배열은 profile 테이블의 컬럼명과 일치해야 함
     });
+    console.log("결과", player.profile);
     res.send(player);
   } catch (err) {
     console.log("err", err);

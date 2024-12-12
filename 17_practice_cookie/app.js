@@ -19,7 +19,6 @@ const cookieConfig = {
 
 app.get("/", (req, res) => {
   // TODO : 쿠키값 가져오기 및 index.ejs에 보내기
-  // const popup = req.cookies.popup === "true";
   const popup = req.signedCookies.popup || true;
   res.render("index", { popup: popup });
 });

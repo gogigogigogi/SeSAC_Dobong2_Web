@@ -24,6 +24,7 @@ const cookieConfig = {
   httpOnly: true, // 프론트에서 쿠키 접근 막기
   // signed: false, // 암호화 여부
   signed: true, // 암호화 여부
+  path: "/",
 };
 
 const cookieConfig2 = {
@@ -35,6 +36,10 @@ const cookieConfig2 = {
 app.get("/abc", (req, res) => {
   res.cookie("abc-page", "abc page cookie", cookieConfig2);
   res.render("cookie-another");
+});
+app.get("/abc-clear", (req, res) => {
+  res.clearCookie("abc-page", { path: "/abc" });
+  res.send("clear cookie, 응답 종료");
 });
 
 app.get("/", (req, res) => {

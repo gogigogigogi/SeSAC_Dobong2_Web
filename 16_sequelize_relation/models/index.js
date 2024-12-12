@@ -26,7 +26,7 @@ PlayerModel.hasOne(ProfileModel, {
   onUpdate: "CASCADE",
   foreignKey: "player_id",
 });
-ProfileModel.belongsTo(ProfileModel, {
+ProfileModel.belongsTo(PlayerModel, {
   foreignKey: "player_id", // 내가 정해준 이름
 });
 

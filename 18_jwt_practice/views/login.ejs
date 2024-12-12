@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link rel="stylesheet" href="/static/login.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="login-box">
+      <h1>로그인</h1>
+      <form name="form-login">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="id">ID</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="id input"
+            aria-describedby="id"
+            name="id"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="pw">PW</span>
+          <input
+            type="password"
+            class="form-control"
+            aria-label="pw input"
+            aria-describedby="pw"
+            name="pw"
+          />
+        </div>
+
+        <button type="button" class="btn btn-dark" onclick="handleLogin()">
+          Login
+        </button>
+        <br />
+        <a href="/user/signup">회원가입</a>
+        <a href="/">Home 이동하기</a>
+      </form>
+    </div>
+    <script>
+      async function handleLogin() {
+        const form = document.forms["form-login"];
+        const inputUserInfo = { id: form.id.value, pw: form.pw.value };
+        console.log(inputUserInfo);
+
+        try {
+          const response = await axios({
+            url: "/user/login",
+            method: "post",
+            data: inputUserInfo,
+          });
+          console.log("클라이언트측", response.data.result);
+          if (response.data.result) {
+            document.location.href = "/";
+          } else {
+            alert("유효한 id, pw를 입력해주세요");
+            form.reset();
+          }
+        } catch (err) {
+          console.log("err", err);
+        }
+      }
+    </script>
+  </body>
+</html>

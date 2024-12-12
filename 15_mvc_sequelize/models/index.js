@@ -1,5 +1,4 @@
 "use strict";
-
 const Sequelize = require("sequelize");
 let config = require(__dirname + "/../config/config.js")["development"];
 
