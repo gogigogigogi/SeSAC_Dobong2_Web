@@ -61,7 +61,6 @@ app.post("/token", (req, res) => {
         const auth = jwt.verify(token, SECRET);
         console.log(auth);
         // { id: 'cocoa', iat: 1733894231 }
-
         if (auth.id === userInfo.id) {
           res.send({ result: true, name: userInfo.name });
         }

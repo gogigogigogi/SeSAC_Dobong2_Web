@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JWT</title>
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>JWT</h1>
+    <div id="info"></div>
+    <script>
+      (async function () {
+        const token = localStorage.getItem("login-token");
+        const info = document.getElementById("info");
+        console.log(token);
+        if (token) {
+          const response = await axios({
+            method: "post",
+            url: "/token",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          console.log(response.data);
+          if (response.data.result) {
+            data = `<p>${response.data.name}님 환영합니다.</p>
+            <button onclick="logout();">로그아웃</button>
+            `;
+          }
+        } else {
+          data = `<a href="/login">로그인</a>`;
+        }
+        info.innerHTML = data;
+      })();
+    </script>
+  </body>
+</html>
