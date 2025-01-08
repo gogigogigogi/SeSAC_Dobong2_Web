@@ -1,8 +1,8 @@
-const models = require("../models");
-const { errorlogs } = require("../utils/common");
+const models = require('../models');
+const { errorlogs } = require('../utils/common');
 // "/" GET
 exports.main = (req, res) => {
-  res.render("index.ejs");
+  res.render('index.ejs');
 };
 
 // "/visitors" GET
@@ -23,14 +23,14 @@ exports.getVisitors = (req, res) => {
     .findAll()
     .then((result) => {
       // findAll의 결과는 배열
-      console.log("findAll", result);
+      console.log('findAll', result);
       // res.send(result);
-      res.render("visitors", { data: result });
+      res.render('visitors', { data: result });
     })
     .catch((err) => {
-      errorlogs(err, "patch controller 내부", "수정 에러가 났음", 500);
-      console.error("getVisitors err", err);
-      res.status(500).send("server err!");
+      errorlogs(err, 'patch controller 내부', '수정 에러가 났음', 500);
+      console.error('getVisitors err', err);
+      res.status(500).send('server err!');
     });
 };
 
@@ -49,11 +49,11 @@ exports.getVisitor = async (req, res) => {
 
   try {
     const result = await models.visitor.findOne({ where: { id: id } });
-    console.log("findOne", result);
+    console.log('findOne', result);
     res.send(result);
   } catch (err) {
     console.error(err);
-    res.status(500).send("internal sever error");
+    res.status(500).send('internal sever error');
   }
   // res.send("response");
 };
@@ -75,12 +75,12 @@ exports.postVisitor = (req, res) => {
   models.visitor
     .create({ name: req.body.name, comment: req.body.comment })
     .then((result) => {
-      console.log("result", result);
+      console.log('result', result);
       res.send(result);
     })
     .catch((err) => {
-      console.error("err", err);
-      res.status(500).send("server error");
+      console.error('err', err);
+      res.status(500).send('server error');
     });
 };
 
@@ -104,15 +104,15 @@ exports.deleteVisitor = async (req, res) => {
         id: req.body.id,
       },
     });
-    console.log("result", result); // 1(삭제 성공), 0(삭제 실패 - 없는 데이터를 삭제하려고 할때)
+    console.log('result', result); // 1(삭제 성공), 0(삭제 실패 - 없는 데이터를 삭제하려고 할때)
     if (Boolean(result)) {
-      res.send(req.body.id + "번 id 삭제 완료");
+      res.send(req.body.id + '번 id 삭제 완료');
     } else {
-      res.send("잘못된 접근입니다!!");
+      res.send('잘못된 접근입니다!!');
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send("internal server error!");
+    res.status(500).send('internal server error!');
   }
 };
 
@@ -135,15 +135,15 @@ exports.patchVisitor = async (req, res) => {
         where: { id: req.body.id },
       }
     );
-    console.log("result", result); //[1],[0]
+    console.log('result', result); //[1],[0]
     // const [number] = result;
     if (Boolean(result)) {
-      res.send("수정 완료");
+      res.send('수정 완료');
     } else {
-      res.send("잘못된 접근입니다.");
+      res.send('잘못된 접근입니다.');
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send("internal server error!");
+    res.status(500).send('internal server error!');
   }
 };

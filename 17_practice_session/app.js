@@ -77,7 +77,7 @@ app.post("/login", (req, res) => {
 // POST /logout
 // 실제 로그아웃 진행
 // 세션 삭제하고 실제 로그아웃하는 것
-app.get("/logout", (req, res) => {
+app.delete("/logout", (req, res) => {
   // 로그인이 되어 세션이 유지되어 있는 유저
   if (req.session.user) {
     req.session.destroy((err) => {
