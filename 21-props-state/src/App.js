@@ -17,8 +17,19 @@ import PracticeFunction from './components/practice/PracticeFunction';
 import SyntheticEvent from './components/SyntheticEvent';
 import { PororoObj } from './components/ex/HandlerEx5';
 import { HandlerEx6 } from './components/ex/HandlerEx6';
+import PropsMap from './components/practice/PropsMap';
+import PropsMap2 from './components/practice/PropsMap2';
+import { Alphabet } from './components/practice/Alphabet';
+import { Practice1 } from './components/practice/Practice1';
+import { Practice2 } from './components/practice/Practice2';
 
 function App() {
+  const arr = [
+    { name: 'peach', krPrice: 10000, number: 5 },
+    { name: 'strawberry', krPrice: 15000, number: 1 },
+    { name: 'pear', krPrice: 5000, number: 3 },
+    { name: 'apple', krPrice: 20000, number: 15 },
+  ];
   return (
     <div>
       <h2>props 사용</h2>
@@ -39,12 +50,17 @@ function App() {
       <PracticeFunction />
       <SyntheticEvent />
       <Counter /> */}
-      <HandlerEx />
+      {/* <HandlerEx />
       <HandlerEx2 />
       <HandlerEx3 />
       <HandlerEx4 />
       <PororoObj />
-      <HandlerEx6 />
+      <HandlerEx6 /> */}
+      {/* <PropsMap arr={arr} />
+      <PropsMap2 /> */}
+      {/* <Alphabet /> */}
+      <Practice1 />
+      <Practice2 />
     </div>
   );
 }
