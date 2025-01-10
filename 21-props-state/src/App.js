@@ -22,6 +22,7 @@ import PropsMap2 from './components/practice/PropsMap2';
 import { Alphabet } from './components/practice/Alphabet';
 import { Practice1 } from './components/practice/Practice1';
 import { Practice2 } from './components/practice/Practice2';
+import Pt2 from './components/practice/Pt2';
 
 function App() {
   const arr = [
@@ -59,8 +60,9 @@ function App() {
       {/* <PropsMap arr={arr} />
       <PropsMap2 /> */}
       {/* <Alphabet /> */}
-      <Practice1 />
-      <Practice2 />
+      {/* <Practice1 />
+      <Practice2 /> */}
+      <Pt2 />
     </div>
   );
 }
