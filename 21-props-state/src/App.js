@@ -22,7 +22,7 @@ import PropsMap2 from './components/practice/PropsMap2';
 import { Alphabet } from './components/practice/Alphabet';
 import { Practice1 } from './components/practice/Practice1';
 import { Practice2 } from './components/practice/Practice2';
-import Pt2 from './components/practice/Pt2';
+import Pt2 from './components/practice/pt2';
 
 function App() {
   const arr = [
