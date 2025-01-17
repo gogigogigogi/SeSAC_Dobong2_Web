@@ -11,7 +11,7 @@ const ProductFilter = () => {
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      return product.price < priceLimit;
+      return product.price < Number(priceLimit);
     });
   }, [priceLimit]);
 
