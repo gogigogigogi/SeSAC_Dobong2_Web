@@ -1,13 +1,13 @@
 {
-  "name": "24-react-hooks",
+  "name": "25-react-hook-practice2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^7.54.2",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "sass": "^1.83.4"
   },
   "scripts": {
     "start": "react-scripts start",
