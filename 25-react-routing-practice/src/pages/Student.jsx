@@ -7,7 +7,7 @@ export default function Student() {
   const realName = searchQuery.get('name');
 
   return (
-    <main>
+    <main className='main-container'>
       <h3>
         학생의 이름은 <span style={{ color: 'green' }}>{name}</span>입니다.
       </h3>

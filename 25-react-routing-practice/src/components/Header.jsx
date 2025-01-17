@@ -5,7 +5,7 @@ export default function Header() {
     margin: '4px',
   };
   return (
-    <>
+    <header className='header-container'>
       <h2>ReactRouter 실습</h2>
       <nav>
         <ul>
@@ -20,6 +20,6 @@ export default function Header() {
           </Link>
         </ul>
       </nav>
-    </>
+    </header>
   );
 }

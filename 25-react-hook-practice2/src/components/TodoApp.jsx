@@ -28,7 +28,7 @@ const reducer = (prevState, action) => {
     case TODO_ACTION_TYPE.complete:
       return prevState.map((todo) => {
         if (todo.id === action.payload) {
-          return { ...todo, completed: !todo.complete };
+          return { ...todo, completed: !todo.completed };
         }
         return todo;
       });
