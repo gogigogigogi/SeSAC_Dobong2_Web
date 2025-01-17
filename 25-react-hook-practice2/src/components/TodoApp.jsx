@@ -19,8 +19,8 @@ const reducer = (prevState, action) => {
         ...prevState,
         {
           id: newId,
-          content: action.payload,
-          complete: false,
+          text: action.payload,
+          completed: false,
         },
       ];
 
@@ -28,7 +28,7 @@ const reducer = (prevState, action) => {
     case TODO_ACTION_TYPE.complete:
       return prevState.map((todo) => {
         if (todo.id === action.payload) {
-          return { ...todo, complete: !todo.complete };
+          return { ...todo, completed: !todo.complete };
         }
         return todo;
       });
@@ -53,8 +53,8 @@ const TodoApp = () => {
   const inputRef = useRef();
 
   // 추가 이벤트 핸들러
-  const addTodoHandler = (content) => {
-    dispatch({ type: TODO_ACTION_TYPE.add, payload: content });
+  const addTodoHandler = (text) => {
+    dispatch({ type: TODO_ACTION_TYPE.add, payload: text });
     setInput('');
     inputRef.current.focus();
   };

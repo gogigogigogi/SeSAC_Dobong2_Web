@@ -5,8 +5,8 @@ export default function TodoItem({ todo, completeDispatch, deleteDispatch }) {
       key={todo.id}
       onClick={() => completeDispatch(todo.id)}
     >
-      <p className={`todo-item-content ${todo.complete ? 'complete' : null}`}>
-        {todo.content}
+      <p className={`todo-item-content ${todo.completed ? 'complete' : null}`}>
+        {todo.text}
       </p>
       <button
         className='todo-item-button'
