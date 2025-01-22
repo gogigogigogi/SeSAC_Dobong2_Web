@@ -2,20 +2,18 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 export default function Student() {
   const { name } = useParams();
-  const [searchQuery, setSearchQuery] = useSearchParams();
+  const [nameParams] = useSearchParams();
+  const nameQuery = nameParams.get('name');
   const navigate = useNavigate();
-  const realName = searchQuery.get('name');
 
   return (
     <main className='main-container'>
-      <h3>
-        학생의 이름은 <span style={{ color: 'green' }}>{name}</span>입니다.
-      </h3>
-      {realName && (
+      <div>
         <p>
-          실제 이름은 <span style={{ color: 'red' }}>{realName}</span>
+          학생의 이름은 <span>{name}</span>입니다.
         </p>
-      )}
+        {nameQuery && <p>실제 이름은 {nameQuery}</p>}
+      </div>
       <button
         onClick={() => {
           navigate(-1);
