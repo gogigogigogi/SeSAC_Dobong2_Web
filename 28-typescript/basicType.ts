@@ -11,7 +11,6 @@ let empty: null = null;
 // array 선언
 let numArr: number[] = [1, 2, 3, 10];
 let strArr: Array<string> = ['a', 'b', 'c'];
-
 let arr1: (number | string)[] = [1, 2, 'a', 'b', 3, 4];
 let arr2: Array<boolean | null | number[]> = [true, false, null, [1, 2, 3]];
 

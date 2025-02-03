@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './postList.css';
 
-const fakePosts = [
+const fakePosts: PostListInterface[] = [
   {
     id: 1,
     title:
@@ -55,13 +55,21 @@ const fakePosts = [
   },
 ];
 
+interface PostListInterface {
+  id: number;
+  title: string;
+  body: string;
+}
+
 export const PostList = () => {
-  const [postsState, setPostsState] = useState([]);
+  const [postsState, setPostsState] = useState<PostListInterface[]>([]);
+
   useEffect(() => {
     setTimeout(() => {
       setPostsState(fakePosts);
-    }, 2000);
+    }, 1000);
   }, []);
+
   return (
     <>
       <div>PostList</div>

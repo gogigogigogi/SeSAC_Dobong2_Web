@@ -12,8 +12,8 @@ function App() {
       <RefFunc1 />
       <RefFunc2 /> */}
       {/* <LifeCycleClass /> */}
-      {/* <PostList /> */}
-      <PostJson />
+      <PostList />
+      {/* <PostJson /> */}
       {/* <Container>
         <FakePost />
         <RealPost />
