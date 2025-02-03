@@ -29,9 +29,32 @@ function generateUniqueId() {
 // console.log('abcdefgh'.substring(2, 5));
 const sockets = [];
 const wsServer = new ws.Server({ server });
+/* 
+  ws 모듈 이벤트
+  - connection: 클라이언트와 웹소켓 서버가 연결되었을 떄
+  - message: 클라이언트에게 메세지를 받았을 때
+  - error: 연결 중 오류
+  - close: 클라이언트와 연결 종료
+*/
 wsServer.on('connection', (socket, req) => {
-  console.log(socket); // 연결된 하나의 클라이언트에 대한 정보
+  // console.log(socket); // 연결된 하나의 클라이언트에 대한 정보
   const clientId = generateUniqueId();
   console.log(`클라이언트 id : [${clientId}] 연결됨`);
-  sockets.push(socket);
+  sockets.push(socket); // 접속한 클라이언트 socket을 배열에 추가
+
+  socket.on('message', (message) => {
+    // console.log('--------');
+    // message는 버퍼 객체
+    // console.log(message.toString());
+    // console.log(message);
+    console.log(`${clientId} ${message}`); // message.toString() 암시적으로 호출
+
+    // 현재 연결된 소켓에게만 message 보내는 것!
+    // socket.send('안녕하세요');
+
+    // 연결된 모든 클라이언트에게 보내는 것
+    sockets.forEach((client) => {
+      client.send(`${message}`);
+    });
+  });
 });

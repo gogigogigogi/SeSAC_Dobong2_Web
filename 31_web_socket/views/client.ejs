@@ -26,10 +26,48 @@
       - error : 웹소켓 연결 중 오류가 발생했을 때
       - close : 웹소켓 연결이 종료되었을 때
       */
+
+      const msg = document.querySelector('#msg');
+      const name = document.querySelector('#name');
+      const chatForm = document.querySelector('#chat');
+      const ul = document.querySelector('ul');
+
       socket.addEventListener('open', (e) => {
         console.log('서버 연결 완료');
-        console.log(e);
-        socket.send('채팅방 입장');
+        // console.log(e);
+        // socket.send('채팅방 입장'); // 서버에게 메세지를 보냄
+      });
+
+      socket.addEventListener('message', (e) => {
+        console.log('서버로부터 받은 메세지', e.data);
+        const { name, msg } = JSON.parse(e.data);
+
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        const p = document.createElement('p');
+
+        ul.style.display = 'flex';
+        ul.style.flexDirection = 'column';
+
+        span.style.fontSize = '20px';
+        span.style.fontWeight = 'bold';
+
+        span.innerText = name;
+        p.innerText = msg;
+        li.append(span, p);
+        ul.append(li);
+      });
+
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const chatData = { msg: msg.value, name: name.value };
+        console.log('chatData', chatData);
+        // server에 데이터 보낼떄
+        // string으로 변경해서 보내야 함
+        socket.send(JSON.stringify(chatData));
+        msg.value = '';
+        name.value = '';
       });
     </script>
   </body>
