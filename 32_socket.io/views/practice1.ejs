@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- socket.io CDN -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>실습문제1</h1>
+    <button onclick="Click('hello')">hello</button>
+    <button onclick="Click('study')">study</button>
+    <button onclick="Click('bye')">bye</button>
+    <h3 class="content"></h3>
+    <script>
+      const h3 = document.querySelector('.content');
+      const socket = io();
+
+      function Click(string) {
+        socket.emit('click', string, (response) => {
+          h3.textContent = `${response}`;
+        });
+      }
+    </script>
+  </body>
+</html>

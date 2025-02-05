@@ -1,15 +1,15 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT;
 
-console.log("db pw", process.env);
+console.log('db pw', process.env);
 
-app.get("/", (req, res) => {
-  res.send("get 요청");
+app.get('/', (req, res) => {
+  res.send('get 요청');
 });
-app.post("/test", (req, res) => {
+app.post('/test', (req, res) => {
   console.log(req.body);
   res.send(req.body);
 });
