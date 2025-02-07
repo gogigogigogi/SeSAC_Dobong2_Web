@@ -7,7 +7,7 @@ const PORT = 8080;
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('chat_dm');
+  res.render('chat_dm_practice');
 });
 
 server.listen(PORT, () => {
@@ -47,32 +47,27 @@ io.on('connection', (socket) => {
 
   // [4-2] 하나의 클라이언트로부터 메세지를 받아서
   // 전체 클라이언트에게 전달
-  socket.on('send', (msgData) => {
-    // msgData:{myNick, dm="socket.id" 혹은 "all" , msg}
+  socket.on('send', (msg) => {
     // console.log(`${socket.id} : ${msg}`);
+    io.emit('message', { id: nickInfo[socket.id], message: msg });
+  });
 
-    if (msgData.dm === 'all') {
-      io.emit('message', { id: msgData.myNick, message: msgData.msg });
-    } else {
-      let dmSocketId = msgData.dm;
-      // 특정 클라이언트에게만 보내기 (나를 제외)
-      io.to(dmSocketId).emit('message', {
-        id: msgData.myNick,
-        message: msgData.msg,
-        isDm: true,
-      });
+  // 특정 클라이언트에게 전달
+  socket.on('whisper', (msg, target) => {
+    console.log('target은', target);
+    let targetClientId = Object.keys(nickInfo).find((clientId) => {
+      return nickInfo[clientId] === target;
+    });
 
-      // 나에게만 보내기
-      socket.emit('message', {
-        id: msgData.myNick,
-        message: msgData.msg,
-        isDm: true,
-      });
-    }
+    socket.broadcast
+      .to(targetClientId)
+      .emit('whisper', target, nickInfo[socket.id], msg);
+    socket.emit('whisper', target, nickInfo[socket.id], msg);
   });
 
   // [클라이언트 연결 종료( 퇴장시 )]
-  socket.on('disconnect', () => {
+  socket.on('disconnect', (reason) => {
+    console.log(reason);
     io.emit('notice', `${nickInfo[socket.id]}님이 퇴장하셨습니다.`);
 
     // nickInfo에서 연결 종료한 클라이언트의 정보를 삭제
